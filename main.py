@@ -9,3 +9,20 @@ def open_file(data_file):
     header = data[0].header
     file = data[0].data
     return(header, file)
+
+
+def slicing_plot(a,b):
+        """la funcion sirve para hacer un recorte en el plot de los datos, dando como opción de que el usario indique sus maximos y minimos
+          especificos a realizar"""
+    xmin= int(input('indique el xmin para su gráfico: '))
+    xmax= int(input('indique el xmax para su gráfico: '))
+#ploteo de los datos ya recortados    
+    %matplotlib qt
+    plt.figure(figsize=(18,6))
+    plt.plot(a,b)
+    plt.ylabel('$Normalized flux$')
+    plt.xlabel('$Angstroms$')
+    plt.grid('on')
+    plt.xlim(xmin,xmax)
+    plt.show()
+  
