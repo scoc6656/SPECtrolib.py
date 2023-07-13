@@ -10,7 +10,7 @@ def open_file(data_file):
     file = data[0].data
     return(header, file)
 
-
+#Creamos una función para graficar el espectro y un recorte de este 
 def slicing_plot(a,b):
         """la funcion sirve para hacer un recorte en el plot de los datos, dando como opción de que el usario indique sus maximos y minimos
           especificos a realizar"""
