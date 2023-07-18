@@ -3,15 +3,27 @@
 #Creamos una función para desempaquetar los datos que vienen en archivo fits (flexible image transport system)
 #denominada open_file
 
-from astropy.io import fits
-import matplotlib.pyplot as plt 
-def open_file(data_file):
-  """La función data file nos ayuda a desempaquetar el header y el array o imagen que contiene
-     los datos de formato fits, para ello debemos insertar en la función un archivo fits"""
-  with fits.open(data_file) as data:
-    header = data[0].header
-    file = data[0].data
-    return(header, file)
+#Función para abrir el archivo fits
+def open_fits(data_file):
+    
+    """
+    Ésta función recibe como argumento un archivo en formato fits ("data_file") y retorna la variable "longitud" que representa
+    el flujo del espectro de luz, la variable "data" que son los datos que entrega el archivo y por último la variable "header" 
+    que representa el encabezado asociado a los datos, en ese orden respectivamente. 
+    """
+    
+    with fits.open(data_file) as set_data:
+        header = set_data[0].header
+        data = set_data[0].data
+        
+    pix1 = header['CRVAL1']
+    delta = header['CDELT1']
+    num = header['NAXIS1']
+    pixeles = pix1 + delta * num
+    longitud = np.linspace(pix1, pixeles, num, endpoint = False)
+    
+    return (longitud, data, header)
+
 
 #Creamos una función para graficar el espectro y un recorte de este 
 def slicing_plot(a,b):
