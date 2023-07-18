@@ -3,6 +3,11 @@
 #Creamos una función para desempaquetar los datos que vienen en archivo fits (flexible image transport system)
 #denominada open_file
 
+import numpy as np
+from astropy.io import fits
+import matplotlib.pyplot as plt
+
+
 #Función para abrir el archivo fits
 def open_fits(data_file):
     
