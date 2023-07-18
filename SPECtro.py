@@ -60,7 +60,7 @@ def slicing_plot(a,b):
     xmin= int(input('indique el xmin para su gráfico: '))
     xmax= int(input('indique el xmax para su gráfico: '))
     #ploteo de los datos ya recortados    
-    
+    %matplotlib qt
     plt.figure(figsize=(18,6))
     plt.plot(a,b)
     plt.ylabel('$Normalized flux$')
