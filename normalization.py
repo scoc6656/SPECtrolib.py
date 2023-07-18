@@ -5,8 +5,18 @@ import numpy as np
 def data_normalization(longitud, data):
     
     """
+    DESCRIPCIÓN 
     Está función recibe como argumentos la longitud del espectro, conocido también como flujo, y el set de datos asociados para
     luego retornar un gráfico de data en función de la longitud pero con los datos normalizados.
+
+    PARÁMETROS
+    Para utilizar nuestra función se deben ingresar los parametros longitud y data
+    longitud: debe ser un array con las longitudes
+    data: debe ser un array con los datos
+
+    OUTPUT
+    El valor de salida de esta función es una normalización del los datos con el polinomio que mejor
+    se ajusta a ellos después de efectuar varios procesos. El output va a ser en concreto datos normalizados
     """
     
     def model_fit(longitud, data):
