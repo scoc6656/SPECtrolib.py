@@ -12,9 +12,18 @@ import matplotlib.pyplot as plt
 def open_fits(data_file):
     
     """
-    Ésta función recibe como argumento un archivo en formato fits ("data_file") y retorna la variable "longitud" que representa
+    DESCRIPCIÓN
+    Ésta función recibe como argumento un archivo en formato fits ("data_file") para devolvernos el archivo desempaquetado
+    con la longitud ya calculada con los parámetros de header que está en los datos. 
+    
+    OUTPUTS
+    retorna la variable "longitud" que representa
     el flujo del espectro de luz, la variable "data" que son los datos que entrega el archivo y por último la variable "header" 
     que representa el encabezado asociado a los datos, en ese orden respectivamente. 
+
+    EJEMPLO
+    Para que la función nos retorne esos valores debemos crear 3 variables a las que le asignemos estos outputs, es decir, hacer
+    la asignación: longitud,data,header = open_fits('file')
     """
     
     with fits.open(data_file) as set_data:
@@ -32,8 +41,22 @@ def open_fits(data_file):
 
 #Creamos una función para graficar el espectro y un recorte de este 
 def slicing_plot(a,b):
-    """la funcion sirve para hacer un recorte en el plot de los datos, dando como opción de que el usario indique sus maximos y minimos
-          especificos a realizar"""
+    """
+    DESCRIPCIÓN
+    La funcion sirve para hacer un recorte en el gráfico de los datos, dando como opción de que el usario indique sus 
+    maximos y minimos para el espectro que desea graficar.
+
+    OUTPUT
+    Nos devuelve un gráfico recortado del espectro en longitud vs flujo normalizado.
+    
+    USO 
+    slicing_plot(a,b)
+    a: deben ser los datos de longitud
+    b: deben ser los datos en sí mismos
+    El código pide 2 inputs
+    min:  es el limite inferior en x
+    max: es el límite superior en x
+    """
     xmin= int(input('indique el xmin para su gráfico: '))
     xmax= int(input('indique el xmax para su gráfico: '))
     #ploteo de los datos ya recortados    
