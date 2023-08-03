@@ -4,7 +4,7 @@ Entre las dependencias del código se encuentran astropy.oi, matplotlib y numpy.
 
 Disponible para la version Python 3.10.11
 
-En este repositorio podran encontrar las siguentes funciones: open_fits, normalized_data y slicing_plot.
+En este repositorio podran encontrar las siguentes funciones: open_fits, data_normalization, slicing_plot y labels.
 
 La función open_fits lo que hace es leer el archivo en formato fits y entregar tres variables:  header, contiene la información que permite reconstruir el muestreo del flujo. La variable data es una extensión que contiene un array con estos flujos. Por último, longitud es la reconstrucción de la longitud de onda (o flujo) a partir del header y data.
 
