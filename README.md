@@ -1,12 +1,12 @@
-# SPECtro.py
-SPECtro.py tiene como propósito aportar una serie de funciones principalmente enfocada en el área de la espectrocopia, con el fin de agilizar el trabajo con datos espectrales. Entre las herramientas encontramos la normalización de datos, gráficos de espectros y la etiqueta de líneas de absorción presentes. 
+# SPECtro
+SPECtro tiene como propósito aportar una serie de funciones principalmente enfocada en el área de la espectrocopia, con el fin de agilizar el trabajo con datos espectrales. Entre las herramientas encontramos la normalización de datos, gráficos de espectros y la etiqueta de líneas de absorción presentes. 
 Entre las dependencias del código se encuentran astropy.oi, matplotlib y numpy.
 
 Disponible para la version Python 3.10.11
 
-En este repositorio podran encontrar las siguentes funciones: open_fits, data_normalization, slicing_plot y labels.
+En este repositorio podran encontrar las siguentes funciones: open_fits, normalized_data y labels.
 
-La función open_fits lo que hace es leer el archivo en formato fits y entregar tres variables:  header, contiene la información que permite reconstruir el muestreo del flujo. La variable data es una extensión que contiene un array con estos flujos. Por último, longitud es la reconstrucción de la longitud de onda (o flujo) a partir del header y data.
+La función open_fits lo que hace es leer el archivo en formato fits y entregar tres variables: header, contiene la información que permite reconstruir el muestreo del flujo. La variable data es una extensión que contiene un array con estos flujos. Por último, longitud es la reconstrucción de la longitud de onda (o flujo) a partir del header y data.
 
 La siguiente función es normalized_data y se divide en tres secciones:
 model_fit busca un polinomio entre los grados 1 y 5 que mejor se ajuste a los datos y elige el que tenga menor diferencia entre los datos reales y la predicción del modelo.
@@ -15,3 +15,4 @@ Se aplican estas dos funciones primero sigma_clip de forma iterativa hasta cumpl
 
 Por último labels es una función que a partir de un valor de ancho equivalente que ingrese el usuario, un valor mínimo y máximo de longitud de onda, grafica los datos con etiquetas de elementos químicos asociados a las líneas de absorción.
 
+Observación: Para que las etiquetas puedan mostrarse de manera correcta se debe descargar el siguiente archivo llamado "opticalLines_EQW_giant.dat" y guardarlo en la misma carpeta en la que se está trabajando el documento.
