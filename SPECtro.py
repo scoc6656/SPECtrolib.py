@@ -6,26 +6,7 @@
 import numpy as np
 from astropy.io import fits
 import matplotlib.pyplot as plt
-#funcion de las dependencias 
-def SPECtro (path):
-  try:
-    with fits.open(path) as file:
-      text=''
-      for page in file:
-        text += page.getText()
-    print (text)
-    with numpy.open(path) as file:
-      text =''
-      for page in file:
-        text += page.getText()
-    print (text)
-    with matplotlib.pyplot.open(path):
-      text=''
-      for page in file:
-        text += page.getText()
 
-  except:
-    pass
 
 class SPECtro:
     def __init__(self, data_file):
