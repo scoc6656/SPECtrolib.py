@@ -15,4 +15,6 @@ Se aplican estas dos funciones primero sigma_clip de forma iterativa hasta cumpl
 
 Por último labels es una función que a partir de un valor de ancho equivalente que ingrese el usuario, un valor mínimo y máximo de longitud de onda, grafica los datos con etiquetas de elementos químicos asociados a las líneas de absorción.
 
-Observación: Para que las etiquetas puedan mostrarse de manera correcta se debe descargar el siguiente archivo llamado "opticalLines_EQW_giant.dat" y guardarlo en la misma carpeta en la que se está trabajando el documento.
+Observación: Para que las etiquetas puedan mostrarse de manera correcta se debe descargar el siguiente archivo llamado "opticalLines_EQW_giant.dat" y guardarlo en la misma carpeta en la que se está trabajando el documento. Además por el momento las etiquetas están para el análisis de estrellas Gigantes.
+
+
