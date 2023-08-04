@@ -13,7 +13,5 @@ model_fit busca un polinomio entre los grados 1 y 5 que mejor se ajuste a los da
 sigma_clip recibe los parámetros de longitud y data para realizar un recorte de los datos asociado al ruido.
 Se aplican estas dos funciones primero sigma_clip de forma iterativa hasta cumplir 10 veces, luego model_fit para encontrar un polinomio mejor ajustado debido al recorte del ruido y finalmente se divide la variable data entre el polinomio evaluado en la longitud para de esta manera entregar los datos normalizados.
 
-La función slicing_plot genera un gráfico de una parte del espectro especificada por el usuario, el cual se genera mediante un recorte de los datos.
-
 Por último labels es una función que a partir de un valor de ancho equivalente que ingrese el usuario, un valor mínimo y máximo de longitud de onda, grafica los datos con etiquetas de elementos químicos asociados a las líneas de absorción.
 
