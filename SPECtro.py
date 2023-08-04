@@ -7,20 +7,19 @@ import numpy as np
 from astropy.io import fits
 import matplotlib.pyplot as plt
 
-
-class SPECtro:
+class load:
     def __init__(self, data_file):
         self.data_file = data_file
         self.longitud, self.data, self.header = self.open_fits()
 
 
     def open_fits(self):
-        
+
         """
         Ésta función lee el archivo y entrega los datos de longitud de onda, los datos y el header respectivamente.
-      
-        """  
-        
+
+        """
+
         with fits.open(self.data_file) as set_data:
             header = set_data[0].header
             data = set_data[0].data
@@ -32,19 +31,19 @@ class SPECtro:
         longitud = np.linspace(pix1, pixeles, num, endpoint=False)
 
         return longitud, data, header
-  
+
 
     def model_fit(self, longitud, data):
-        
+
         """
         Ésta función recibe como argumentos la longitud del espectro y el set de datos asociado para buscar un modelo
         polinomial que se ajuste a los datos.
-      
+
         """
-        
+
         polynomials = []
         MSEs = []
-        
+
         for grade in range(1, 6):
             model = np.poly1d(np.polyfit(longitud, data, grade))
             mse = np.sqrt( (1/len(data)) * np.sum( (data - model(longitud)) ** 2) )
@@ -57,13 +56,13 @@ class SPECtro:
 
 
     def sigma_clip(self, longitud, data):
-        
+
         """
         Ésta función recibe como argumentos la longitud del espectro y el set de datos asociado para buscar un modelo
         polinomial que se ajuste a los datos.
-      
+
         """
-        
+
         mean = np.mean(data)
         std = np.std(data)
         sigma = 2
@@ -80,15 +79,15 @@ class SPECtro:
 
         return clipped_longitud, clipped_data
 
-    
+
 
     def normalized_data(self):
-        
+
         """
         Ésta función normaliza los datos espectrales.
-      
-        """   
-        
+
+        """
+
         clip_longitud = self.longitud
         clip_data = self.data
 
@@ -106,16 +105,16 @@ class SPECtro:
         return normalization
 
 
-    
+
     def labels(self, eqw, min_wavelength, max_wavelength):
-        
+
         """
-        Ésta función recibe como argumentos el ancho equivalente que desee el usuario (eqw), el mínimo y máximo de longitud de onda 
-        que se desea graficar, hay que tener en cuenta que estos datos tienen que coincidir con los rangos de longitud presentes en 
+        Ésta función recibe como argumentos el ancho equivalente que desee el usuario (eqw), el mínimo y máximo de longitud de onda
+        que se desea graficar, hay que tener en cuenta que estos datos tienen que coincidir con los rangos de longitud presentes en
         los datos de estudio.
-      
+
         """
-        
+
         opticalLabels = np.genfromtxt("opticalLines_EQW_giant.dat", dtype=None, encoding=None, unpack=True, usecols=(0, 1, 2), skip_header=1)
         wavelength = opticalLabels[0]
         chemical_element = opticalLabels[1]
